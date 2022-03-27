@@ -1,6 +1,7 @@
 import "./App.css";
 import { NumberProvider } from "./contexts/mainContext";
 import Button from "./components/Button";
+import Test from "./components/Test";
 function App() {
   return (
     <NumberProvider>
@@ -9,6 +10,7 @@ function App() {
         <Button></Button>
         <Button></Button>
         <Button></Button>
+        <Test />
       </div>
     </NumberProvider>
   );
