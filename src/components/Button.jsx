@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { NumberContext } from "../contexts/mainContext";
 
 function Button() {
-  const state = useContext(NumberContext); // (*)  const onIncrease = () => dispatch({ type: ACTIONS.INCREASE });
+  const myNumber = useContext(NumberContext);
+  console.log(myNumber);
   return (
     <div>
-      <span>{state}</span>
+      <span>Here: {myNumber}</span>
     </div>
   );
 }
