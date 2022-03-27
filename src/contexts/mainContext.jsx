@@ -1,35 +1,16 @@
-import React, { useReducer, createContext, useMemo } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 export const NumberContext = createContext();
-export const ACTIONS = {
-  INCREASE: "increase",
-  DECREASE: "decrease",
-};
-const initialState = {
-  value: 0,
-};
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.INCREASE:
-      return {
-        value: state.value + 1,
-      };
-    case ACTIONS.DECREASE:
-      return {
-        value: state.value - 1,
-      };
-    default:
-      return state;
-  }
-};
+
 export const NumberProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState); // (**)
-  const contextValue = useMemo(() => {
-    return { state, dispatch };
-  }, [state, dispatch]);
+  const [num, setNum] = useState(0);
+  useEffect(() => {
+    setInterval(() => {
+      //TODO ref
+      setNum((old) => old + 1);
+    }, 5000);
+  }, []);
   return (
-    <NumberContext.Provider value={contextValue}>
-      {children}
-    </NumberContext.Provider>
+    <NumberContext.Provider value={num}>{children}</NumberContext.Provider>
   );
 };
