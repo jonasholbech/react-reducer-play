@@ -23,7 +23,7 @@ const reducer = (state, action) => {
   }
 };
 export const NumberProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState); // (**)
+  const [state, dispatch] = useReducer(reducer, initialState);
   const contextValue = useMemo(() => {
     return { state, dispatch };
   }, [state, dispatch]);
