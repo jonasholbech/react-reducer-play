@@ -1,26 +1,5 @@
-import React, { useReducer } from "react";
-
-export const ACTIONS = {
-  INCREASE: "increase",
-  DECREASE: "decrease",
-};
-const initialState = {
-  value: 0,
-};
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.INCREASE:
-      return {
-        value: state.value + 1,
-      };
-    case ACTIONS.DECREASE:
-      return {
-        value: state.value - 1,
-      };
-    default:
-      return state;
-  }
-};
+import { useReducer } from "react";
+import { ACTIONS, reducer, initialState } from "../reducers/reducer";
 
 function Button() {
   const [state, dispatch] = useReducer(reducer, initialState);
