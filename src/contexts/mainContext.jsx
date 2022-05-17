@@ -8,6 +8,8 @@ export const NumberProvider = ({ children }) => {
   const contextValue = useMemo(() => {
     return { state, dispatch };
   }, [state, dispatch]); */
+  //TODO: https://hswolff.com/blog/how-to-usecontext-with-usereducer/
+  //Skal jeg have useMemo eller to contexts?
   const contextValue = {
     count,
     setCount,
